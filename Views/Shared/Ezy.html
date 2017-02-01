@@ -1,0 +1,45 @@
+<html>
+<head>
+    <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-2.0.1.js"></script>
+    <style>
+        h1 {
+            font-family: verdana;
+            font-size: 1.2em;
+        }
+
+        a {
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <script type="text/javascript">
+        function LoadList() {
+            var items = [];
+            $.each(("0123456789").split("").map(Number), function (index, value) {
+                items.push($("<li><a href='#'>" + value + "</a></li>").click(function () { (value == 5 ? alert("five") : alert(value)); }));
+            });
+            $(".THELIST").empty().append(items);
+        }
+
+        $(function() {
+            $('#Clock').append(Date());
+            setTimeout(function () { alert('you have now been on the page for half a minute'); }, 30000);
+        });
+    </script>
+    <h1>The fantastic javascript example</h1>
+    <h1>List</h1>
+    <table border="1">
+        <tr>
+            <td style="width: 200px;">
+                <a href="javascript:LoadList();">Read list to the right</a>
+            </td>
+            <td>
+                <ul class="THELIST">
+                </ul>
+            </td>
+        </tr>
+    </table>
+    <p>Time is: <span id="Clock"></span></p>
+</body>
+</html>
